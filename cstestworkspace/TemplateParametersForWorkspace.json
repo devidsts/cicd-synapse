@@ -9,7 +9,7 @@
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:cstestworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
 		"cstestworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
-			"value": "https://cstestblob.dfs.core.windows.net"
+			"value": "https://csprodblob.dfs.core.windows.net"
 		}
 	}
 }
