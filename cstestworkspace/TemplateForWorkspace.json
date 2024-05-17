@@ -5,16 +5,16 @@
 		"workspaceName": {
 			"type": "string",
 			"metadata": "Workspace name",
-			"defaultValue": "cstestworkspace"
+			"defaultValue": "csprodworkspace"
 		},
-		"cstestworkspace-WorkspaceDefaultSqlServer_connectionString": {
+		"csprodworkspace-WorkspaceDefaultSqlServer_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'cstestworkspace-WorkspaceDefaultSqlServer'",
-			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:cstestworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+			"metadata": "Secure string for 'connectionString' of 'csprodworkspace-WorkspaceDefaultSqlServer'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:csprodworkspace.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
-		"cstestworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
+		"csprodworkspace-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://cstestblob.dfs.core.windows.net"
+			"defaultValue": "https://csprodblob.dfs.core.windows.net"
 		}
 	},
 	"variables": {
@@ -22,7 +22,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('workspaceName'), '/cstestworkspace-WorkspaceDefaultSqlServer')]",
+			"name": "[concat(parameters('workspaceName'), '/csprodworkspace-WorkspaceDefaultSqlServer')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
@@ -34,7 +34,7 @@
 				"annotations": [],
 				"type": "AzureSqlDW",
 				"typeProperties": {
-					"connectionString": "[parameters('cstestworkspace-WorkspaceDefaultSqlServer_connectionString')]"
+					"connectionString": "[parameters('csprodworkspace-WorkspaceDefaultSqlServer_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "AutoResolveIntegrationRuntime",
@@ -46,14 +46,14 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/cstestworkspace-WorkspaceDefaultStorage')]",
+			"name": "[concat(parameters('workspaceName'), '/csprodworkspace-WorkspaceDefaultStorage')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('cstestworkspace-WorkspaceDefaultStorage_properties_typeProperties_url')]"
+					"url": "[parameters('csprodworkspace-WorkspaceDefaultStorage_properties_typeProperties_url')]"
 				},
 				"connectVia": {
 					"referenceName": "AutoResolveIntegrationRuntime",
